@@ -3,7 +3,7 @@
 	url = https://github.com/StanHash/FE8ModularStatGetters.git
 [submodule "Tools/CLib"]
 	path = Tools/CLib
-	url = https://github.com/StanHash/FE-CLib
+	url = https://github.com/boviex/FE-CLib-Decompatible
 [submodule "Tools/PyTools"]
 	path = Tools/PyTools
 	url = https://github.com/StanHash/FE-PyTools.git

@@ -3,7 +3,8 @@
 # = OBJECTS & DMPS =
 # ==================
 
-LYN_REFERENCE := Tools/CLib/reference/FE8U-20190316.o
+# LYN_REFERENCE := Tools/CLib/reference/FE8U-20190316.o
+LYN_REFERENCE := Tools/CLib/reference/FE8U-decompatible.o
 
 # OBJ to event
 %.lyn.event: %.o $(LYN_REFERENCE)

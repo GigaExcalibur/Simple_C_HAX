@@ -36,7 +36,7 @@ EVENT_DEPENDS := $(shell $(EADEP) $(EVENT_MAIN) -I $(realpath .)/Tools/EventAsse
 
 # Additional EA commandline flags
 # EAFLAGS := -raws:Tools/EA-Raws --nocash-sym
-EAFLAGS :=
+EAFLAGS := --nocash-sym
 
 $(ROM_TARGET): $(EVENT_MAIN) $(EVENT_DEPENDS) $(ROM_SOURCE)
 	$(NOTIFY_PROCESS)
