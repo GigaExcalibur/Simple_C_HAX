@@ -48,10 +48,13 @@ build EventAssembler:
 8. `find . -type f -print0 | xargs -0 dos2unix` (this step fixes windows line endings for all files in all subfolders so make sure you run it from the Simple_C_HAX folder)
 9. `cd Tools/EventAssembler`
 10. `./build.sh`
+11. Check inside Tools/EventAssembler/Tools - there should be "Tool Helpers.txt", but if not get it from https://github.com/StanHash/EventAssembler/blob/8aa0709a3be725f9cb2174f08763b59b4f937560/.Sources/Tool%20Helpers.txt
 
 Finally, making the hack:
-1. OpenTerminal.bat if WSL is not already open
-2. `make hack`
+1. Put a clean FE8U rom named "FE8U.gba" in the root folder
+2. Optional: put a symbol file named "FE8U.sym" in the root folder (here is one, just rename it to FE8U.sym https://cdn.discordapp.com/attachments/179027738454261760/906677647222919188/fe8u-20211009.sym)
+3. OpenTerminal.bat if WSL is not already open
+4. `make hack`
 
 ### Making C Hax
 1. Find the routine you want to replace from https://github.com/FireEmblemUniverse/fireemblem8u
