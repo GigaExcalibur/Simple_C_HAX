@@ -3,7 +3,9 @@
 
 Intended as a simple introduction to writing C hax using the FE8U decompilation.
 
-## Windows Users: refer to "notes on installing chax.txt"
+## Setup Guide (Windows Users)
+
+### Environment Setup
 
 Installing WSL:
 1. Open powershell and `wsl --install`
@@ -53,6 +55,12 @@ build EventAssembler:
 Finally, making the hack:
 1. OpenTerminal.bat if WSL is not already open
 2. `make hack`
+
+### Making C Hax
+1. Find the routine you want to replace from https://github.com/FireEmblemUniverse/fireemblem8u
+2. In the Wizardry/Easy_C folder, open "decomp.c"
+3. Paste the relevant code into decomp.c and make any edits you need
+4. Go back up to the Simple_C_HAX folder and `make hack`
 
 ## General `make`/EA guidelines
 
