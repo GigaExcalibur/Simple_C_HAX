@@ -3,26 +3,56 @@
 
 Intended as a simple introduction to writing C hax using the FE8U decompilation.
 
-## how2
+## Windows Users: refer to "notes on installing chax.txt"
 
-### Windows Users: refer to "notes on installing chax.txt"
+Installing WSL:
+1. Open powershell and `wsl --install`
+2. Restart computer when ready
+3. A console window opens and you can set your username and password
 
-You need to be on some Linux (Windows users: consider using [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10)).
+Navigate to the folder you will be putting the repository in:
+1. `cd /mnt/c/`  (replace with /mnt/d/ or whatever drive letter you want)
+2. You are now in your C:\ drive - `cd path/to/your/folder` (use forward slashes not backslashes)
+3. MAKE SURE THERE ARE NO SPACES IN THE PATH
 
-This repository makes use of the git submodule facilities. If you didn't clone the repository using `git clone --recursive`, then you will need to `git submodule update --init --recursive` before being able to build this.
+Clone the Simple_C_HAX repository:
+1. `git clone --recursive https://github.com/boviex/Simple_C_HAX.git Simple_C_HAX`
 
-- have [devkitARM](https://devkitpro.org/wiki/Getting_Started) installed, and the `DEVKITARM` env variable set.
-- have [python 3](https://www.python.org/) installed and in your path. (the makefile *should* be able to find the correct python executable name. See [`tooks.mk`](./tooks.mk)).
-- have built Tools/EventAssembler by running `Tools/EventAssembler/build.sh`. [See the attached README for details](https://github.com/StanHash/EventAssembler/blob/main/README.md).
+Install devkitpro:
+1. `sudo apt update`
+2. `sudo apt install gdebi-core`
+3a. open a command prompt in windows and `echo %PROCESSOR_ARCHITECTURE%` to see if you have amd64
+3b. ASSUMING YOU HAVE AMD64 SYSTEM: `wget https://github.com/devkitPro/pacman/releases/download/v1.0.2/devkitpro-pacman.amd64.deb`
+4. `sudo gdebi devkitpro-pacman.amd64.deb`
+5a. `sudo dkp-pacman -S gba-dev`
+5b. Press Enter at the prompt: `Enter a selection (default=all):`
+5c. Enter Y at the prompt: `Proceed with installation?`
+6. `logout` and then open WSL using "OpenTerminal.bat"
 
-Once all of that is done, you can navigate to this folder in your shell and do the following:
+install python3 and pip packages:
+1. `sudo apt install python3 python3-pip python-is-python3`
+2. `logout` and then run OpenTerminal.bat
+3. `pip install pyinstaller`
+4. `pip install tmx`
 
-- `make` or `make hack` to build the ROM (requires `FE8U.gba` in the directory)
-- If you want to make a speicifc hack, simply include its main installer from `Main.event` or `Wizardry/Wizardry.event` and `make` again.
-- you can `make SomeFile.[o|asm|dmp|lyn.event]` to make a specific file (`asm` files are generated from C).
-- run `make clean` to clean build outputs.
+build EventAssembler:
+1a. `sudo apt install \
+  build-essential cmake re2c \
+  ghc cabal-install libghc-vector-dev libghc-juicypixels-dev`
+1b. `cabal update`
+2a. `wget https://packages.microsoft.com/config/ubuntu/21.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb`
+2b. `sudo dpkg -i packages-microsoft-prod.deb`
+2c. `rm packages-microsoft-prod.deb`
+2d. `sudo apt update; \
+  sudo apt install -y apt-transport-https && \
+  sudo apt update && \
+  sudo apt install -y dotnet-sdk-5.0`
+3a. `cd Tools/EventAssembler`
+3b. `./build.sh`
 
-hf :)
+Finally, making the hack:
+1. OpenTerminal.bat if WSL is not already open
+2. `make hack`
 
 ## General `make`/EA guidelines
 
