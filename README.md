@@ -38,17 +38,17 @@ install python3 and pip packages:
 4. `pip install tmx`
 
 build EventAssembler:
-1. ```sudo apt install \
+1. `sudo apt install \
   build-essential cmake re2c \
-  ghc cabal-install libghc-vector-dev libghc-juicypixels-dev```
+  ghc cabal-install libghc-vector-dev libghc-juicypixels-dev`
 2. `cabal update`
 3. `wget https://packages.microsoft.com/config/ubuntu/21.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb`
 4. `sudo dpkg -i packages-microsoft-prod.deb`
 5. `rm packages-microsoft-prod.deb`
-6. ```sudo apt update; \
+6. `sudo apt update; \
   sudo apt install -y apt-transport-https && \
   sudo apt update && \
-  sudo apt install -y dotnet-sdk-5.0```
+  sudo apt install -y dotnet-sdk-5.0`
 7. `cd Tools/EventAssembler`
 8. `./build.sh`
 
