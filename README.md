@@ -20,7 +20,7 @@ Navigate to the folder you will be putting the repository in:
 Clone the Simple_C_HAX repository:
 1. `git clone --recursive https://github.com/boviex/Simple_C_HAX.git Simple_C_HAX`
 
-Install devkitpro:
+Install devkitpro for WSL:
 1. `sudo apt update`
 2. `sudo apt install gdebi-core`
 3. open a command prompt in windows and `echo %PROCESSOR_ARCHITECTURE%` to see if you have amd64
@@ -31,7 +31,7 @@ Install devkitpro:
 8. Enter Y at the prompt: `Proceed with installation?`
 9. `logout` and then open WSL using "OpenTerminal.bat"
 
-install python3 and pip packages:
+install python3 and pip packages for WSL:
 1. `sudo apt install python3 python3-pip python-is-python3`
 2. `logout` and then run OpenTerminal.bat
 3. `pip install pyinstaller`
