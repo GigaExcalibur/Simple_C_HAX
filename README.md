@@ -44,8 +44,10 @@ build EventAssembler:
 4. `sudo dpkg -i packages-microsoft-prod.deb`
 5. `rm packages-microsoft-prod.deb`
 6. `sudo apt update; \sudo apt install -y apt-transport-https && \sudo apt update && \sudo apt install -y dotnet-sdk-5.0`
-7. `cd Tools/EventAssembler`
-8. `./build.sh`
+7. `sudo apt install dos2unix`
+8. `find . -type f -print0 | xargs -0 dos2unix` (this step fixes windows line endings for all files in all subfolders so make sure you run it from the Simple_C_HAX folder)
+9. `cd Tools/EventAssembler`
+10. `./build.sh`
 
 Finally, making the hack:
 1. OpenTerminal.bat if WSL is not already open
