@@ -1,9 +1,11 @@
 
-# Stan's CHax for FE8U
+# Simple C Hax for FE8U - based on Stan's FE-CHAX
 
-GBAFE hacks (in C!) and `EA`/`make` template. See [FE8UASMHax](https://github.com/StanHash/FE8UASMHax) for older stuff (there's still a few things left there that I haven't ported to here yet).
+Intended as a simple introduction to writing C hax using the FE8U decompilation.
 
 ## how2
+
+### Windows Users: refer to "notes on installing chax.txt"
 
 You need to be on some Linux (Windows users: consider using [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10)).
 
@@ -27,16 +29,6 @@ hf :)
 - **_Never_ use spaces in filenames/paths.** This breaks `make` horribly. This is one of the main reason I had to modify most of circles tools for them to work with this setup.
 - Don't use `#incext`/`#inctext` unless you *really* need to. Use `#include`/`#incbin` with files generated from Makefile rules instead. This speeds up the build process tremendously.
 
-## Big thankies
+## Stan Appreciation Zone
 
-Kinda random but I feel like giving credit.
-
-- circleseverywhere: Most tools in the `Tools/py` folder are based off his work. `_FE8EssentialFixes.event` is his composition (I think). Also lots of cool hax to base off mine. Also the original `MAKE HACK.cmd`. Also cool guy.
-- Colorz: Maintains EA and implemented a lot of useful stuff. Also made `ParseFile` and `PortraitFormatter`, both of which are used here. Also useful hax. Also *Everything Assembler*. Also cool guy.
-- Tequila: the Teq Doq is the best thing ever (I probably never would have gotten that far if not for that). Also lots of hax. Also cool guy. :duck:
-- Teraspark, Leonarth, Kirb, Tiki/laqieer, ...: Cool and useful hax. Cool guys.
-- Alusq: Demo/Test map. Cool guy.
-- Nintenlord: He made the original EA. I never knew him but I assume he also was a cool guy.
-- Zane: Doesn't have much to do with this but I love his work. Cool guy.
-- Arch, Camdar: They prevent FEU from dying horribly (or at least from doing so for extented amounts of time). Cool guys.
-- all of FEU: Cool guys.
+Stan Appreciation Zone
