@@ -26,7 +26,7 @@ Install devkitpro:
 
 install python3 and pip packages:
 1. `sudo apt install python3 python3-pip python-is-python3`
-2. `logout` and then open 'wsl.exe' again from the start menu
+2. `logout` and then run OpenTerminal.bat
 3. `pip install pyinstaller`
 4. `pip install tmx`
 
@@ -42,7 +42,7 @@ build EventAssembler:
   sudo apt install -y apt-transport-https && \
   sudo apt update && \
   sudo apt install -y dotnet-sdk-5.0`
-3a. `cd FE-CHAX/Tools/EventAssembler`
+3a. `cd Tools/EventAssembler`
 3b. `./build.sh`
 
 Finally, making the hack:
