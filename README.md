@@ -29,7 +29,7 @@ Install devkitpro for WSL:
 6. `sudo dkp-pacman -S gba-dev`
 7. Press Enter at the prompt: `Enter a selection (default=all):`
 8. Enter Y at the prompt: `Proceed with installation?`
-9. `logout` and then open WSL using "OpenTerminal.bat"
+9. `logout` and then open WSL using "OpenTerminal.bat" (this should open WSL with the correct folder already but if not, use `cd` to navigate to the Simple_C_HAX folder)
 
 install python3 and pip packages for WSL:
 1. `sudo apt install python3 python3-pip python-is-python3`
