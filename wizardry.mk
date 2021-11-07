@@ -9,7 +9,7 @@ LYN_REFERENCE := Tools/CLib/reference/FE8U-decompatible.o
 # OBJ to event
 %.lyn.event: %.o $(LYN_REFERENCE)
 	$(NOTIFY_PROCESS)
-	@$(LYN) $< $(LYN_REFERENCE) > $@
+	@$(LYN) -temp $< $(LYN_REFERENCE) > $@
 
 # OBJ to DMP rule
 %.dmp: %.o

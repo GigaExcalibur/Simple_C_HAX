@@ -4,5 +4,6 @@
 #include "_FE8EssentialFixes.event"
 
 #include "Easy_C/decomp.lyn.event"
+// #include "Easy_C/bmitemuse.lyn.event" //currently not working...
 
 #endif // WIZARDRY
