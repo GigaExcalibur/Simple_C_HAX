@@ -5,5 +5,7 @@
 
 #include "Easy_C/decomp.lyn.event"
 // #include "Easy_C/bmitemuse.lyn.event" //currently not working...
+#include "Easy_C/bmgold.lyn.event"
+#include "Easy_C/bmitem.lyn.event"
 
 #endif // WIZARDRY
