@@ -9,7 +9,7 @@ struct WarpSelectProc
     /* 4A */ short prevWarpAllowed;
     /* 4C */ u8 pad4C[0x54 - 0x4C];
     /* 54 */ struct APHandle* ap;
-};
+}; 
 
 void sub_8034FFC(ProcPtr proc);
 void sub_803501C(struct Unit* unit);
@@ -122,27 +122,28 @@ PROC_LABEL(100),
     PROC_END,
 };
 
-struct ProcCmd CONST_DATA gProcScr_SquareSelectTorch[] =
-{
-    PROC_CALL(AddSkipThread2),
+extern struct ProcCmd CONST_DATA gProcScr_SquareSelectTorch[];
+//  =
+// {
+//     PROC_CALL(AddSkipThread2),
 
-    PROC_CALL(TorchSelect_OnInit),
-    PROC_WHILE_EXISTS(gUnknown_0859A548),
+//     PROC_CALL(TorchSelect_OnInit),
+//     PROC_WHILE_EXISTS(gUnknown_0859A548),
 
-    PROC_REPEAT(TorchSelect_OnIdle),
+//     PROC_REPEAT(TorchSelect_OnIdle),
 
-    PROC_CALL(WarpSelect_OnConfirm),
+//     PROC_CALL(WarpSelect_OnConfirm),
 
-    PROC_GOTO(100),
+//     PROC_GOTO(100),
 
-PROC_LABEL(99),
-    PROC_CALL(WarpSelect_OnCancel),
+// PROC_LABEL(99),
+//     PROC_CALL(WarpSelect_OnCancel),
 
-PROC_LABEL(100),
-    PROC_CALL(SubSkipThread2),
+// PROC_LABEL(100),
+//     PROC_CALL(SubSkipThread2),
 
-    PROC_END,
-};
+//     PROC_END,
+// };
 
 s8 CanUnitUseItem(struct Unit* unit, int item)
 {
@@ -155,7 +156,8 @@ s8 CanUnitUseItem(struct Unit* unit, int item)
     case ITEM_STAFF_HEAL:
     case ITEM_STAFF_MEND:
     case ITEM_STAFF_RECOVER:
-        return HasSelectTarget(unit, MakeTargetListForAdjacentHeal);
+        // return HasSelectTarget(unit, MakeTargetListForAdjacentHeal);
+        return HasSelectTarget(unit, MakeTargetListForRangedHeal);
 
     case ITEM_STAFF_PHYSIC:
         return HasSelectTarget(unit, MakeTargetListForRangedHeal);
@@ -352,7 +354,7 @@ void DoItemUse(struct Unit* unit, int item)
     case ITEM_STAFF_HEAL:
     case ITEM_STAFF_MEND:
     case ITEM_STAFF_RECOVER:
-        DoUseHealStaff(unit, MakeTargetListForAdjacentHeal);
+        DoUseHealStaff(unit, MakeTargetListForRangedHeal);
         break;
 
     case ITEM_STAFF_PHYSIC:

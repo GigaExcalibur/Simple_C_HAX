@@ -4,7 +4,7 @@
 #include "_FE8EssentialFixes.event"
 
 #include "Easy_C/decomp.lyn.event"
-// #include "Easy_C/bmitemuse.lyn.event" //currently not working...
+#include "Easy_C/bmitemuse.lyn.event" //had to comment out a proc struct but it did otherwise work?
 #include "Easy_C/bmgold.lyn.event"
 #include "Easy_C/bmitem.lyn.event"
 
