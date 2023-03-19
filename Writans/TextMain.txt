@@ -1,3 +1,72 @@
-
-# 0x0212 textFlorinaName
+# 0x04db textFlorinaName
 Florina[X]
+
+# 0x04dc DarinaName
+Danielle[X]
+
+## EugeniaName
+Eugenia[X]
+
+## CalvinName
+Calvin[X]
+
+## AleynaName
+Aleyna[X]
+
+## DuncanName
+Duncan[X]
+
+## EkaitzName
+Ekaitz[X]
+
+## NiravName
+Nirav[X]
+
+## ClovisName
+Clovis[X]
+
+## EmmersonName
+Emmerson[X]
+
+## SolineName
+Soline[X]
+
+## DarinaDesc
+Newly crowned lord of _____[N]
+Indecisive and flippant.[X]
+
+## EugeniaDesc
+Envoy of the ____ merchant family.[N]
+Fiercely loyal to Darina.
+
+## CalvinDesc
+Spy employed by House _____[N]
+Flirtatious by nature.[X]
+
+## AleynaDesc
+Mercenary captain hired by Eugenia.[N]
+Brash, loudmouthed, and hotheaded.[X]
+
+## DuncanDesc
+Former retainer to Lord ____[N]
+Torn between his desires and duties.[X]
+
+## EkaitzDesc
+Member of Aleyna's mercenary group.[N]
+A perpetual wanderer.[X]
+
+## NiravDesc
+Rookie knight of House _____[N]
+Hides cowardice behind a stoic facade.[X]
+
+## ClovisDesc
+Priest stationed at _____ castle town.[N]
+Bleeding heart pacifist.[X]
+
+## EmmersonDesc
+Young squire mentored by Duncan.[N]
+Orphaned 7 years ago in a prior conflict.[X]
+
+## SolineDesc
+Mysterious woman concealed by Lord _____[N]
+Possesses the power to raise the dead.[X]

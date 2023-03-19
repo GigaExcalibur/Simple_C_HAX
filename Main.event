@@ -7,8 +7,7 @@
 #include "Extensions/Hack Installation.txt"
 #include "EAstdlib.event"
 
-#define FreeSpace    0xB2A610
-#define FreeSpaceEnd 0xC00000
+#define FreeSpace 0xEFB2E0
 
 #define FreeSpace_BLRange 0x1C1EC0
 
@@ -18,15 +17,19 @@ ORG FreeSpace_BLRange
 ORG FreeSpace
 	ALIGN 4
 	#include "Writans/Text.event"
+	MESSAGE Text ends at currentOffset
 
 	ALIGN 4
 	#include "GameData/GameData.event"
+	MESSAGE Tables end at currentOffset
 
 	ALIGN 4
 	#include "Wizardry/_WizardryMain.event"
+	MESSAGE Engine hacks end at currentOffset
 
 	ALIGN 4
 	#include "Spritans/Portraits.event"
+	MESSAGE Portraits end at currentOffset
 
 	/*
 	ALIGN 4
@@ -35,16 +38,12 @@ ORG FreeSpace
 
 	ALIGN 4
 	#include "Songs/Songs.event"
+	MESSAGE Songs end at currentOffset
 
 	{
 	#include "Chapters/Chapters.event"
 	}
-
-	// If the following assertion fails, it means we ran out of free space.
-	// If that happens, we want to either split out our data between different
-	// sections, or start writing after the end of the ROM (offset 0x1000000+)
-
-	ASSERT (FreeSpaceEnd - CURRENTOFFSET)
+	MESSAGE Chapters end at currentOffset
 
 #else // MAIN
 	MESSAGE wat are u doin
