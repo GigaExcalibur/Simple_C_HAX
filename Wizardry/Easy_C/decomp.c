@@ -1,52 +1,114 @@
 #include "gbafe.h"
+#include "variables.h"
 
-int GetBattleUnitExpGain(struct BattleUnit* actor, struct BattleUnit* target) {
 
-    // Copied from src/bmbattle.c in fireemblem8u decomp
-    // we are editing this to always return 100 exp (unless no exp can be gained)
 
-    int result;
+void DrawItemMenuLine(struct TextHandle* text, int item, s8 isUsable, u16* mapOut) {
+    Text_SetParameters(text, 0, (isUsable ? TEXT_COLOR_NORMAL : TEXT_COLOR_GRAY));
+    Text_AppendString(text, GetItemName(item));
 
-    if (!CanBattleUnitGainLevels(actor) || (actor->unit.curHP == 0) || UNIT_CATTRIBUTES(&target->unit) & CA_NEGATE_LETHALITY)
-        return 0;
+    Text_Draw(text, mapOut + 2);
+	
+	if (!(GetItemAttributes(item) & IA_UNBREAKABLE)) {
+		if (ProcFind(0x859BB1C)) {
+			DrawDecNumber(mapOut + 11, isUsable ? TEXT_COLOR_BLUE : TEXT_COLOR_GRAY, GetItemUses(item));
+		}
+		else {
+			DrawDecNumber(mapOut + 11, isUsable ? TEXT_COLOR_BLUE : TEXT_COLOR_GRAY, GetItemUses(item));			
+		}
+	}
 
-    // if (!actor->nonZeroDamage)
-    //     return 1;
-
-    // result = GetUnitRoundExp(&actor->unit, &target->unit);
-    // result += GetUnitKillExpBonus(&actor->unit, &target->unit);
-
-    // if (result > 100)
-    //     result = 100;
-
-    // if (result < 1)
-    //     result = 1;
-
-    // ModifyUnitSpecialExp(&actor->unit, &target->unit, &result);
-    result = 100;
-
-    return result;
+    DrawIcon(mapOut, GetItemIconId(item), 0x4000);
 }
 
+void DrawItemMenuLineLong(struct TextHandle* text, int item, s8 isUsable, u16* mapOut) {
+    Text_SetParameters(text, 0, (isUsable ? TEXT_COLOR_NORMAL : TEXT_COLOR_GRAY));
+    Text_AppendString(text, GetItemName(item));
 
-int GetUnitAid(struct Unit* unit) {
+    Text_Draw(text, mapOut + 2);
+	
+	if (!(GetItemAttributes(item) & IA_UNBREAKABLE)) {
+		DrawDecNumber(mapOut + 10, isUsable ? TEXT_COLOR_BLUE : TEXT_COLOR_GRAY, GetItemUses(item));
+	}
 
-    // copied from src/bmunit.c
-    // let's make it less sexist
-    
-    if (!(UNIT_CATTRIBUTES(unit) & CA_MOUNTEDAID))
-        return UNIT_CON(unit) - 1;
-
-    // if (UNIT_CATTRIBUTES(unit) & CA_FEMALE)
-        // return 20 - UNIT_CON(unit);
-    // else
-        return 25 - UNIT_CON(unit);
+    //DrawDecNumber(mapOut + 13, isUsable ? TEXT_COLOR_BLUE : TEXT_COLOR_GRAY, GetItemMaxUses(item));
+    //sub_8004B0C(mapOut + 11, isUsable ? TEXT_COLOR_NORMAL : TEXT_COLOR_GRAY, 0x16); // draw special character?
+    DrawIcon(mapOut, GetItemIconId(item), 0x4000);
+	// DrawTextInline(0, BGLoc(BG0Buffer, 2, 3), 3, 13, 2, "  ");
 }
 
-void ComputeBattleUnitHitRate(struct BattleUnit* bu) {
+void DrawItemMenuLineNoColor(struct TextHandle* text, int item, u16* mapOut) {
+    Text_SetXCursor(text, 0);
+    Text_AppendString(text, GetItemName(item));
 
-    // copied from src/bmbattle.c
-    // changing unit.skl multiplier from 2 to 4
+    Text_Draw(text, mapOut + 2);
+	
+	if (!(GetItemAttributes(item) & IA_UNBREAKABLE)) {
+		DrawDecNumber(mapOut + 11, Text_GetColorId(text), GetItemUses(item));
+	}
+    DrawIcon(mapOut, GetItemIconId(item), 0x4000);
+}
 
-    bu->battleHitRate = (bu->unit.skl * 2) + GetItemHit(bu->weapon) + (bu->unit.lck / 2) + bu->wTriangleHitBonus;
+void DrawItemStatScreenLine(struct TextHandle* text, int item, int nameColor, u16* mapOut) {
+    int color;
+
+    Text_Clear(text);
+
+    color = nameColor;
+    Text_SetColorId(text, color);
+
+    Text_AppendString(text, GetItemName(item));
+
+    color = (nameColor != TEXT_COLOR_GRAY) ? TEXT_COLOR_BLUE : TEXT_COLOR_GRAY;
+	
+	if (!(GetItemAttributes(item) & IA_UNBREAKABLE)) { // Supposed to check whether the item is unbreakable
+		//color = (nameColor == TEXT_COLOR_GRAY) ? TEXT_COLOR_GRAY : TEXT_COLOR_NORMAL;
+		//sub_8004B0C(mapOut + 12, color, 0x16);
+		color = (nameColor != TEXT_COLOR_GRAY) ? TEXT_COLOR_BLUE : TEXT_COLOR_GRAY;
+		DrawDecNumber(mapOut + 14, color, GetItemUses(item)); // 11 if not displaying max
+		//DrawDecNumber(mapOut + 14, color, GetItemMaxUses(item));
+	}
+	
+	Text_Draw(text, mapOut + 2);
+    DrawIcon(mapOut, GetItemIconId(item), 0x4000);
+}
+
+extern struct TextHandle* gPrepUnitTexts[];
+
+void DrawPrepScreenItems(u16* tm, struct TextHandle* th, struct Unit* unit, u8 checkPrepUsability) {
+    s8 isUsable;
+    int i;
+    int itemCount;
+
+    TileMap_FillRect(tm, 11, 9, 0);
+
+    itemCount = GetUnitItemCount(unit);
+
+    for (i = 0; i < itemCount; i++) {
+        int item = unit->items[i];
+
+        if (checkPrepUsability != 0) {
+            isUsable = CanUnitUseItemPrepScreen(unit, item);
+        } else {
+            isUsable = IsItemDisplayUsable(unit, item);
+        }
+
+        Text_Clear(th);
+        DrawTextInline(
+            th,
+            tm + i * 0x40 + 2,
+            !isUsable ? TEXT_COLOR_GRAY : TEXT_COLOR_NORMAL,
+            0,
+            0,
+            GetItemName(item)
+        );
+		if (!(GetItemAttributes(item) & IA_UNBREAKABLE)) {
+			DrawUiNumberOrDoubleDashes(tm + i * 0x40 + 0xB, isUsable ? TEXT_COLOR_BLUE : TEXT_COLOR_GRAY, GetItemUses(item));
+		}
+        DrawIcon(tm + i * 0x40, GetItemIconId(item), 0x4000);
+
+        th++;
+    }
+
+    return;
 }

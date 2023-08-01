@@ -1,0 +1,22 @@
+// These make the item name width in the stat screen wider
+#define ItemNameWidth 0x0A
+PUSH
+ORG 0xA00778
+BYTE ItemNameWidth
+ORG 0xA00780
+BYTE ItemNameWidth
+ORG 0xA00788
+BYTE ItemNameWidth
+ORG 0xA00790
+BYTE ItemNameWidth
+ORG 0xA00798
+BYTE ItemNameWidth
+POP
+
+// These make the item selection menu wider
+/*PUSH
+ORG 0x59D184
+BYTE 0x0 0x0 0x11
+ORG 0x59D1CC
+BYTE 0x0 0x0 0x11
+POP */

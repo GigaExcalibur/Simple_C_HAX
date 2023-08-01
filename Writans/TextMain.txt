@@ -1,7 +1,7 @@
-# 0x04db textFlorinaName
+# 0x0d4c textFlorinaName
 Florina[X]
 
-# 0x04dc DarinaName
+## DarinaName
 Danielle[X]
 
 ## EugeniaName
@@ -32,41 +32,47 @@ Emmerson[X]
 Soline[X]
 
 ## DarinaDesc
-Newly crowned lord of _____[N]
+Newly crowned lord of _____[NL]
 Indecisive and flippant.[X]
 
 ## EugeniaDesc
-Envoy of the ____ merchant family.[N]
+Envoy of the ____ merchant family.[NL]
 Fiercely loyal to Darina.
 
 ## CalvinDesc
-Spy employed by House _____[N]
+Spy employed by House _____[NL]
 Flirtatious by nature.[X]
 
 ## AleynaDesc
-Mercenary captain hired by Eugenia.[N]
+Mercenary captain hired by Eugenia.[NL]
 Brash, loudmouthed, and hotheaded.[X]
 
 ## DuncanDesc
-Former retainer to Lord ____[N]
+Former retainer to Lord ____[NL]
 Torn between his desires and duties.[X]
 
 ## EkaitzDesc
-Member of Aleyna's mercenary group.[N]
+Member of Aleyna's mercenary group.[NL]
 A perpetual wanderer.[X]
 
 ## NiravDesc
-Rookie knight of House _____[N]
+Rookie knight of House _____[NL]
 Hides cowardice behind a stoic facade.[X]
 
 ## ClovisDesc
-Priest stationed at _____ castle town.[N]
+Priest stationed at _____ castle town.[NL]
 Bleeding heart pacifist.[X]
 
 ## EmmersonDesc
-Young squire mentored by Duncan.[N]
+Young squire mentored by Duncan.[NL]
 Orphaned 7 years ago in a prior conflict.[X]
 
 ## SolineDesc
-Mysterious woman concealed by Lord _____[N]
+Mysterious woman concealed by Lord _____[NL]
 Possesses the power to raise the dead.[X]
+
+## IronGreatlanceName
+Leviathan Greatbow[X]
+
+## SteelGreatlanceName
+Steel Greatlance[X]

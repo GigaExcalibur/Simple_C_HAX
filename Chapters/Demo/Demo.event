@@ -57,7 +57,7 @@ TrapList2:
 
 ALIGN 4
 unPlayerList:
-	UNIT Eirika PegasusKnight 0 Level(10, Ally, True) [7, 6] 0 0 1 SumREDA [IronLance, ElysianWhip, Vulnerary] NoAI
+	UNIT Eirika PegasusKnight 0 Level(10, Ally, True) [7, 6] 0 0 1 SumREDA [IronLance, SteelLance, RedGem, 0x7C] NoAI
 	UNIT Moulder Priest Eirika Level(10, Ally, True) [8, 8] 0 0 0 0 [Heal] NoAI
 	UNIT Innes Sniper Eirika Level(1, Ally, True) [7, 9] 0 0 0 0 [IronBow, SteelBow, IronSword] NoAI
 	UNIT
@@ -88,7 +88,7 @@ scBeginning:
 
 	EVBIT_F 9
 
-	ENDA
+	GotoPrepScreen
 
 ALIGN 4
 scEnding:
